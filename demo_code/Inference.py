@@ -154,11 +154,8 @@ def main(args):
 
     # traverse the images
     images = glob.glob(os.path.join(args.path_image, '*.png'))
-    cnt = 0
+
     for image_name in tqdm(images):
-        if cnt > 20:
-            break
-        cnt += 1
         image = default_loader(image_name)
 
         res_img, res_mask, _ = inference_image(model, image, ref_txt, tasks)
